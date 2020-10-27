@@ -1,7 +1,9 @@
 require 'discordrb'
+require '../src/cog'
 
-class MultiCog
+class MultiCog < Cogs::Cog
   def initialize(bot: Discordrb::Commands::CommandBot)
+    super(name: "SecondCog")
     @bot = bot
   end
 

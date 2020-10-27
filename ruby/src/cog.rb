@@ -1,9 +1,16 @@
-module Cog
+require 'discordrb'
+
+module Cogs
   class Cog
-    def initialize(bot)
-      @bot = bot
-      @__cog_commands__ = {}
-      @_commands_loaded = false
+    @__cog_commands__ = {}
+    @commands_loaded = false
+
+    def initialize(name: "Cog")
+      @name = name
+    end
+
+    def name
+      @name
     end
 
     def get_commands

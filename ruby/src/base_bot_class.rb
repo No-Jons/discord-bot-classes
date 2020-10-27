@@ -5,13 +5,15 @@ module BaseBot
   class BaseBotClass < Discordrb::Commands::CommandBot
     def initialize(token, prefix)
       super token: token, prefix: prefix
-      @_cogs = []
+      @cogs = []
+    end
+
+    def cogs
+      @cogs
     end
 
     def add_commands
-      self.command :test do |event|
-        event.respond("works")
-      end
+      nil
     end
 
     def run_bot
@@ -44,7 +46,7 @@ module BaseBot
     def add_cog(cog)
       begin
         cog.commands
-        @_cogs.append(cog)
+        @cogs.append(cog)
       rescue NoMethodError => error
         self.log_exception(error)
       end

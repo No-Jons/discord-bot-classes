@@ -8,6 +8,12 @@ class Bot < BaseBot::BaseBotClass
     @cog_dir = '../tests/cogs/'
   end
 
+  def add_commands
+    self.command :test do |event|
+      event.respond("works")
+    end
+  end
+
   def before
     %w(cog multicog).each do |i|
       self.load_cog("#{@cog_dir}#{i}")
